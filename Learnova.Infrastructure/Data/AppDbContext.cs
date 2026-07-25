@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace Learnova.Infrastructure.Data
 {
@@ -51,8 +52,30 @@ namespace Learnova.Infrastructure.Data
             base.OnModelCreating(builder);
 
             builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
+            ApplySoftDeleteQueryFilters(builder);
         }
 
+        private static void ApplySoftDeleteQueryFilters(ModelBuilder builder)
+        {
+            var entityTypes = builder.Model
+                .GetEntityTypes()
+                .Where(entityType =>
+                    typeof(BaseEntity).IsAssignableFrom(entityType.ClrType) &&
+                    entityType.BaseType is null);
 
+            foreach (var entityType in entityTypes)
+            {
+                var parameter = Expression.Parameter(entityType.ClrType, "entity");
+                var isDeletedProperty = Expression.Property(
+                    parameter,
+                    nameof(BaseEntity.IsDeleted));
+
+                var filter = Expression.Lambda(
+                    Expression.Not(isDeletedProperty),
+                    parameter);
+
+                entityType.SetQueryFilter(filter);
+            }
+        }
     }
 }

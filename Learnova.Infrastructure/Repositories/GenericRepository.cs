@@ -33,7 +33,7 @@ namespace Learnova.Infrastructure.Repositories
 
         public async Task<IEnumerable<T>> GetAllWithCondition(Expression<Func<T, bool>>? filter = null,params Expression<Func<T, object>>[] includes)
         {
-            IQueryable<T> query = context.Set<T>().Where(c => !c.IsDeleted);
+            IQueryable<T> query = context.Set<T>();
 
             if (filter != null)
             {
@@ -53,21 +53,21 @@ namespace Learnova.Infrastructure.Repositories
 
         public async Task<IReadOnlyList<T>> GetAllWithSpecAsync(ISpecification<T> spec)
         {
-            var query = SpecificationEvaluator.GetQuery(context.Set<T>().Where(c => !c.IsDeleted), spec);
+            var query = SpecificationEvaluator.GetQuery(context.Set<T>(), spec);
 
             return await query.ToListAsync();
         }
 
         public async Task<T?> GetEntityWithSpecAsync(ISpecification<T> spec)
         {
-            var query = SpecificationEvaluator.GetQuery(context.Set<T>().Where(c => !c.IsDeleted ), spec);
+            var query = SpecificationEvaluator.GetQuery(context.Set<T>(), spec);
 
             return await query.FirstOrDefaultAsync();
         }
 
         public async Task<IEnumerable<T>> GetAll(Expression<Func<T, object>>? include = null)
         {
-            var query = context.Set<T>().Where(c => c.IsDeleted == false);
+            var query = context.Set<T>().AsQueryable();
 
             if (include != null)
             {
@@ -79,7 +79,7 @@ namespace Learnova.Infrastructure.Repositories
         public async Task<T?> GetById(int id, Expression<Func<T, object>>? include = null)
         {
            
-            var query = context.Set<T>().Where(o => o.IsDeleted == false && o.Id == id);
+            var query = context.Set<T>().Where(o => o.Id == id);
 
           
             if (include != null)
@@ -100,7 +100,7 @@ namespace Learnova.Infrastructure.Repositories
         public async Task<bool> AnyWithSpecAsync(ISpecification<T> spec)
         {
             var query = SpecificationEvaluator.GetQuery(
-                context.Set<T>().Where(c => !c.IsDeleted),
+                context.Set<T>(),
                 spec
             );
 
@@ -110,7 +110,7 @@ namespace Learnova.Infrastructure.Repositories
         public async Task<int> CountWithSpecAsync(ISpecification<T> spec)
         {
             var query = SpecificationEvaluator.GetQuery(
-                context.Set<T>().Where(c => !c.IsDeleted),
+                context.Set<T>(),
                 spec
             );
 
@@ -119,7 +119,7 @@ namespace Learnova.Infrastructure.Repositories
 
         public async Task<int> CountAsync(Expression<Func<T, bool>>? filter = null)
         {
-            IQueryable<T> query = context.Set<T>().Where(c => !c.IsDeleted);
+            IQueryable<T> query = context.Set<T>();
 
             if (filter != null)
             {
