@@ -1,7 +1,7 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Learnova.Application.Courses.DTO;
 using Learnova.Application.Courses.Specifications;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;

@@ -3,7 +3,7 @@ using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.Exceptions;
 using Learnova.Application.Reviews.DTO;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -39,7 +39,7 @@ namespace Learnova.Application.Reviews.Command.CreateReview
                 request.CourseId);
 
             var hasActiveEnrollment = await unitOfWork
-                .Repository<Learnova.Domain.Entites.Enrollment>()
+                .Repository<Learnova.Domain.Entities.Enrollment>()
                 .AnyWithSpecAsync(activeEnrollmentSpec);
 
             if (!hasActiveEnrollment)

@@ -1,5 +1,5 @@
-﻿using Learnova.Application.Courses.DTO;
-using Learnova.Domain.Entites;
+using Learnova.Application.Courses.DTO;
+using Learnova.Domain.Entities;
 using MediatR;
 using System;
 using System.Collections.Generic;

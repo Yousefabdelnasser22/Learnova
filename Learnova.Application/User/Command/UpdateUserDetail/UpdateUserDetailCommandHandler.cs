@@ -1,5 +1,5 @@
 using Learnova.Application.Exceptions;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;

@@ -1,10 +1,10 @@
-﻿using Learnova.Application.Exceptions;
+using Learnova.Application.Exceptions;
 using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.Orders.Specifications;
 using Learnova.Application.Payments.DTO;
 using Learnova.Application.Payments.Gateway;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;
@@ -151,7 +151,7 @@ namespace Learnova.Application.Payments.Commands.StartOrderPayment
                     item.CourseId);
 
                 var existingEnrollment = await unitOfWork
-                    .Repository<Learnova.Domain.Entites.Enrollment>()
+                    .Repository<Learnova.Domain.Entities.Enrollment>()
                     .GetEntityWithSpecAsync(activeEnrollmentSpec);
 
                 if (existingEnrollment is not null)

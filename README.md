@@ -87,6 +87,9 @@ dotnet user-secrets set "Gemini:EmbeddingModel" "gemini-embedding-001" --project
 
 dotnet user-secrets set "Stripe:SecretKey" "sk_test_xxxxx" --project $project
 dotnet user-secrets set "Stripe:WebhookSecret" "whsec_xxxxx" --project $project
+
+dotnet user-secrets set "AdminBootstrap:Email" "admin@example.com" --project $project
+dotnet user-secrets set "AdminBootstrap:Password" "<strong-one-time-password>" --project $project
 ```
 
 Notes:
@@ -124,8 +127,12 @@ dotnet ef database update `
 ```
 
 When the API runs in Development, it also applies pending migrations
-automatically and seeds the `Admin`, `Student`, and `Instructor` roles. No user
-or administrator account is created automatically.
+automatically. In every environment, application startup seeds the `Admin`,
+`Student`, and `Instructor` roles. If no Admin exists, it creates the initial
+Admin from `AdminBootstrap:Email` and `AdminBootstrap:Password`. Remove the
+bootstrap password from configuration after the account has been created.
+Users created through `/api/identity/register` receive the `Student` role
+automatically.
 
 For production deployments, run `dotnet ef database update` as an explicit
 deployment step; the application does not apply migrations automatically in
@@ -185,6 +192,8 @@ dotnet dev-certs https --trust
 | `Stripe:SuccessUrl` | Yes | No | Checkout success redirect URL |
 | `Stripe:CancelUrl` | Yes | No | Checkout cancellation redirect URL |
 | `Cors:AllowedOrigins` | Yes | No | Frontend origins allowed by CORS |
+| `AdminBootstrap:Email` | Until the first Admin exists | No | Email for the initial Admin account |
+| `AdminBootstrap:Password` | Until the first Admin exists | Yes | One-time password for the initial Admin account |
 
 ASP.NET Core maps double underscores in environment-variable names to nested
 configuration keys. For example:
@@ -209,6 +218,8 @@ Stripe__WebhookSecret=<stripe-webhook-secret>
 Stripe__SuccessUrl=<frontend-success-url>
 Stripe__CancelUrl=<frontend-cancel-url>
 Cors__AllowedOrigins__0=<frontend-origin>
+AdminBootstrap__Email=<initial-admin-email>
+AdminBootstrap__Password=<strong-one-time-password>
 ```
 
 ## Stripe webhooks
@@ -229,7 +240,8 @@ processing checkout completion, checkout expiration, and refund events.
 In the Development environment, application startup performs these steps:
 
 1. Applies pending EF Core migrations.
-2. Seeds the `Admin`, `Student`, and `Instructor` roles.
+2. Seeds the `Admin`, `Student`, and `Instructor` roles and creates the first
+   Admin when necessary.
 3. Ensures that the Qdrant `courses` collection exists with 3,072-dimensional
    cosine-distance vectors.
 
@@ -246,6 +258,8 @@ reachable for migrations and seeding to succeed.
   URL.
 - Use production SQL Server, Redis, SMTP, Qdrant, Gemini, and Stripe resources.
 - Apply EF Core migrations before starting the new application version.
+- Provide `AdminBootstrap__Email` and `AdminBootstrap__Password` for the first
+  startup, then remove the password after the Admin account is created.
 - Configure HTTPS and a reverse proxy or managed application host.
 - Configure the Stripe production webhook to send events to
   `/api/payments/stripe/webhook`.
@@ -279,16 +293,3 @@ that the API key can list and create collections.
 Identity requires email confirmation. Confirm that the SMTP configuration can
 deliver the verification message and that the user completed the confirmation
 flow.
-
-## Tests
-
-The repository does not currently contain an automated test project. The
-solution can still be compiled with:
-
-```powershell
-dotnet build Learnova.sln --configuration Release
-```
-
-Adding unit tests for application handlers and integration tests for the API,
-database, authentication, and payment webhook flows is recommended before a
-production release.

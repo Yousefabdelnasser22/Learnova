@@ -1,7 +1,7 @@
 using Learnova.Application.Courses.Services;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;

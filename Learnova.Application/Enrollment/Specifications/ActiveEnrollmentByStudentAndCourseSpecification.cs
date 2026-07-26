@@ -1,4 +1,4 @@
-﻿using Learnova.Domain.Enums;
+using Learnova.Domain.Enums;
 using Learnova.Domain.Specifications;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Learnova.Application.Enrollment.Specifications
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
     public class ActiveEnrollmentByStudentAndCourseSpecification
     : BaseSpecification<EnrollmentEntity>
     {

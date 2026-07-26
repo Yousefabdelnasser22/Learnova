@@ -1,5 +1,5 @@
 using Learnova.Application.Payments.Specifications;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;

@@ -3,7 +3,7 @@ using Learnova.Domain.Specifications;
 
 namespace Learnova.Application.Reviews.Specifications
 {
-    using ReviewEntity = Learnova.Domain.Entites.Review;
+    using ReviewEntity = Learnova.Domain.Entities.Review;
 
     public class CourseReviewsSpecification : BaseSpecification<ReviewEntity>
     {

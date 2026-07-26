@@ -1,6 +1,6 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Learnova.Application.SubCategories.DTO;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 
 namespace Learnova.Application.SubCategories.Mapping
 {

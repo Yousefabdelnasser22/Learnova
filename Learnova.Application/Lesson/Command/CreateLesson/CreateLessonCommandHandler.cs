@@ -2,7 +2,7 @@ using AutoMapper;
 using Learnova.Application.Courses.Services;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -76,7 +76,7 @@ namespace Learnova.Application.Lesson.Command.CreateLesson
                 existingLesson.Position++;
             }
 
-            var lesson = mapper.Map<Learnova.Domain.Entites.Lesson>(request);
+            var lesson = mapper.Map<Learnova.Domain.Entities.Lesson>(request);
             lesson.ModuleId = request.ModuleId;
 
             var wasPublished = courseContentChangeService.MarkPendingReviewIfPublished(module.Course);

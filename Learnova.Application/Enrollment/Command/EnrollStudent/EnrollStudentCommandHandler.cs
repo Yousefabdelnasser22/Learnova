@@ -1,7 +1,7 @@
 using Learnova.Application.Exceptions;
 using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;
@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Learnova.Application.Enrollment.Command.EnrollStudent
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class EnrollStudentCommandHandler(IUserContext userContext, ILogger<EnrollStudentCommandHandler> logger, IUnitOfWork unitOfWork) : IRequestHandler<EnrollStudentCommand>
     {
@@ -60,7 +60,7 @@ namespace Learnova.Application.Enrollment.Command.EnrollStudent
                 throw new ConflictException("Student is already enrolled in this course.");
             }
 
-            var enrollment = new Learnova.Domain.Entites.Enrollment
+            var enrollment = new Learnova.Domain.Entities.Enrollment
             {
                 CourseId = request.CourseId,
                 StudentId = user.Id,

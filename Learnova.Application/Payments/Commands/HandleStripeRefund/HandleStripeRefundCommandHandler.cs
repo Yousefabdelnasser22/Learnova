@@ -2,7 +2,7 @@ using Learnova.Application.Certificates.Specifications;
 using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.Orders.Specifications;
 using Learnova.Application.Payments.Specifications;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;
@@ -11,7 +11,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Learnova.Application.Payments.Commands.HandleStripeRefund
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class HandleStripeRefundCommandHandler(
         IUnitOfWork unitOfWork,

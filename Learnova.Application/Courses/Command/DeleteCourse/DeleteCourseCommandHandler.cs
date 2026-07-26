@@ -2,7 +2,7 @@ using Learnova.Application.Caching;
 using Learnova.Application.Courses.Services;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Learnova.Application.Courses.Command.DeleteCourse
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class DeleteCourseCommandHandler(
         IUnitOfWork unitOfWork,

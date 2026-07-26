@@ -1,7 +1,7 @@
 using AutoMapper;
 using Learnova.Application.Courses.Command.CreateCourse;
 using Learnova.Application.Courses.Command.UpdateCourse;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 
 namespace Learnova.Application.Courses.DTO

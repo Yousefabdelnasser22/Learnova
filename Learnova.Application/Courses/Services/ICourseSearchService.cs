@@ -1,4 +1,4 @@
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 
 namespace Learnova.Application.Courses.Services
 {

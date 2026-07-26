@@ -1,8 +1,8 @@
-﻿using Learnova.Application.Carts.Specifications;
+using Learnova.Application.Carts.Specifications;
 using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;

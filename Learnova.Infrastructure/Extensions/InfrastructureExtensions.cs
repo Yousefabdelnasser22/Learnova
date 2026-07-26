@@ -38,6 +38,10 @@ namespace Learnova.Infrastructure.Extensions
 
             services.AddScoped<Iseeder, Learnova.Infrastructure.Seeder.Seeder>();
 
+            services
+                .AddOptions<AdminBootstrapSettings>()
+                .Bind(configuration.GetSection(AdminBootstrapSettings.SectionName));
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IPaymentGatewayService, StripePaymentGatewayService>();
             services.AddScoped<IBackgroundJobScheduler, HangfireBackgroundJobScheduler>();
@@ -59,7 +63,7 @@ namespace Learnova.Infrastructure.Extensions
                     "Email FromName is required.")
                 .ValidateOnStart();
 
-            services.AddTransient<IEmailSender<Learnova.Domain.Entites.ApplicationUser>, SmtpEmailSender>();
+            services.AddTransient<IEmailSender<Learnova.Domain.Entities.ApplicationUser>, SmtpEmailSender>();
 
             services
                 .AddOptions<QdrantSettings>()

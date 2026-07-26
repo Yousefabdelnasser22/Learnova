@@ -1,11 +1,11 @@
-﻿using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 
 namespace Learnova.Domain.Interfaces
 {
     public interface IUnitOfWork
     {
         IGenericRepository<Course> course { get; }
-        IGenericRepository<Entites.Module> module { get; }
+        IGenericRepository<Entities.Module> module { get; }
         IGenericRepository<Lesson> lesson { get; }
 
         IEnrollmentRepository enrollment { get; }

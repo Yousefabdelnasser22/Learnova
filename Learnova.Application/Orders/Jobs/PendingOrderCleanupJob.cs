@@ -1,7 +1,7 @@
 using Learnova.Application.Common.BackgroundJobs;
 using Learnova.Application.Orders.Specifications;
 using Learnova.Application.Payments.Gateway;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using Microsoft.Extensions.Logging;

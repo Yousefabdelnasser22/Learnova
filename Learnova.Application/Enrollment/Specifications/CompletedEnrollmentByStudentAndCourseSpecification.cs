@@ -2,7 +2,7 @@ using Learnova.Domain.Specifications;
 
 namespace Learnova.Application.Enrollment.Specifications
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class CompletedEnrollmentByStudentAndCourseSpecification : BaseSpecification<EnrollmentEntity>
     {

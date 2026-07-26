@@ -2,7 +2,7 @@ using Learnova.Application.User.Command.AssignUserRole;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
 using Learnova.Domain.Constant;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;

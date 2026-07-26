@@ -33,7 +33,7 @@ namespace Learnova.Application.Lesson.Query.GetLessonById
             }
 
             var lessonSpec = new LessonByIdWithModuleSpecification(request.Id);
-            var lesson = await unitOfWork.Repository<Learnova.Domain.Entites.Lesson>()
+            var lesson = await unitOfWork.Repository<Learnova.Domain.Entities.Lesson>()
                 .GetEntityWithSpecAsync(lessonSpec);
 
             if (lesson is null)

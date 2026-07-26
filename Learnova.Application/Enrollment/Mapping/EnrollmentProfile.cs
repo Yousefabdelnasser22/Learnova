@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Learnova.Application.Enrollment.DTO;
 using System;
 using System.Collections.Generic;
@@ -12,14 +12,14 @@ namespace Learnova.Application.Enrollment.Mapping
     {
         public EnrollmentProfile()
         {
-            CreateMap<Learnova.Domain.Entites.Enrollment, StudentEnrollmentDto>()
+            CreateMap<Learnova.Domain.Entities.Enrollment, StudentEnrollmentDto>()
                 .ForMember(dest => dest.EnrollmentId, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.CourseTitle, opt => opt.MapFrom(src => src.Course.Title))
                 .ForMember(dest => dest.CourseDescription, opt => opt.MapFrom(src => src.Course.Description));
 
 
 
-            CreateMap<Learnova.Domain.Entites.Enrollment, CourseEnrollmentDto>()
+            CreateMap<Learnova.Domain.Entities.Enrollment, CourseEnrollmentDto>()
           .ForMember(dest => dest.EnrollmentId, opt => opt.MapFrom(src => src.Id))
           .ForMember(dest => dest.StudentEmail, opt => opt.MapFrom(src => src.Student.Email));
         }

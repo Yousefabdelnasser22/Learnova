@@ -3,7 +3,7 @@ using Learnova.Application.Enrollment.Services;
 using Learnova.Application.Exceptions;
 using Learnova.Application.Lesson.Specifications;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -30,7 +30,7 @@ namespace Learnova.Application.Lesson.Command.CompleteLesson
             }
 
             var lessonSpec = new LessonByIdWithModuleSpecification(request.LessonId);
-            var lesson = await unitOfWork.Repository<Learnova.Domain.Entites.Lesson>()
+            var lesson = await unitOfWork.Repository<Learnova.Domain.Entities.Lesson>()
                 .GetEntityWithSpecAsync(lessonSpec);
             if (lesson == null)
             {

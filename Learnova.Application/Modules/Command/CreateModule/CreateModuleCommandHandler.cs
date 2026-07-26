@@ -52,7 +52,7 @@ namespace Learnova.Application.Modules.Command.CreateModule
                 existingModule.Position++;
             }
 
-            var module = mapper.Map<Learnova.Domain.Entites.Module>(request);
+            var module = mapper.Map<Learnova.Domain.Entities.Module>(request);
             await unitOfWork.module.Add(module);
 
             var wasPublished = courseContentChangeService.MarkPendingReviewIfPublished(course);

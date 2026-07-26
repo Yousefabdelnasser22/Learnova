@@ -2,7 +2,7 @@ using Learnova.Domain.Specifications;
 
 namespace Learnova.Application.Modules.Specifications
 {
-    using ModuleEntity = Learnova.Domain.Entites.Module;
+    using ModuleEntity = Learnova.Domain.Entities.Module;
 
     public class ModulesByCourseSpecification : BaseSpecification<ModuleEntity>
     {

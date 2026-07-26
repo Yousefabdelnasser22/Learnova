@@ -1,23 +1,23 @@
-﻿using Learnova.Domain.Enums;
+using Learnova.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learnova.Domain.Entites
+namespace Learnova.Domain.Entities
 {
-    public class OrderItem : BaseEntity
+    public class CartItem : BaseEntity
     {
-        public int OrderId { get; set; }
+        public int CartId { get; set; }
         public int CourseId { get; set; }
 
         public decimal UnitPrice { get; set; }
         public Currency Currency { get; set; }
 
-        public string CourseTitleSnapshot { get; set; } = null!;
+        public DateTime AddedAt { get; set; } = DateTime.UtcNow;
 
-        public Order Order { get; set; } = null!;
+        public Cart Cart { get; set; } = null!;
         public Course Course { get; set; } = null!;
     }
 }

@@ -2,13 +2,13 @@ using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
 using Learnova.Domain.Constant;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 
 namespace Learnova.Application.Courses.Services
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
   
         public class CourseAccessService(IUnitOfWork unitOfWork) : ICourseAccessService

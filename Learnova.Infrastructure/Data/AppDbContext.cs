@@ -1,4 +1,4 @@
-﻿using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Microsoft.AspNetCore.DataProtection.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

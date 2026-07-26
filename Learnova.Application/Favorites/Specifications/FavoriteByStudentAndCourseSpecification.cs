@@ -1,4 +1,4 @@
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Specifications;
 
 namespace Learnova.Application.Favorites.Specifications

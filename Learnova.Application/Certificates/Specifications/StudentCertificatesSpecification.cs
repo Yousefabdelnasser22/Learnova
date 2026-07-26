@@ -3,7 +3,7 @@ using Learnova.Domain.Specifications;
 
 namespace Learnova.Application.Certificates.Specifications
 {
-    using CertificateEntity = Learnova.Domain.Entites.Certificate;
+    using CertificateEntity = Learnova.Domain.Entities.Certificate;
 
     public class StudentCertificatesSpecification : BaseSpecification<CertificateEntity>
     {

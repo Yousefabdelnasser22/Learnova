@@ -5,9 +5,10 @@ using Learnova.Api.Middlewares;
 using Learnova.Api.Services;
 using Learnova.Application.Caching;
 using Learnova.Application.Extensions;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Infrastructure.Data;
 using Learnova.Infrastructure.Extensions;
+using Learnova.Infrastructure.Identity;
 using Learnova.Infrastructure.Search;
 using Learnova.Infrastructure.Seeder;
 using Microsoft.AspNetCore.Authentication.BearerToken;
@@ -49,7 +50,8 @@ namespace Learnova.Api
                 options.SignIn.RequireConfirmedEmail = true;
             })
                 .AddRoles<IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
+                .AddEntityFrameworkStores<AppDbContext>()
+                .AddUserManager<ApplicationUserManager>();
 
             builder.Services.Configure<BearerTokenOptions>(
                 IdentityConstants.BearerScheme,
@@ -115,24 +117,28 @@ namespace Learnova.Api
             var app = builder.Build();
 
 
-            if (app.Environment.IsDevelopment())
+            using (var scope = app.Services.CreateScope())
             {
-                using var scope = app.Services.CreateScope();
-
                 var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-                await dbContext.Database.MigrateAsync();
+                if (app.Environment.IsDevelopment())
+                {
+                    await dbContext.Database.MigrateAsync();
+                }
 
                 var seeder = scope.ServiceProvider.GetRequiredService<Iseeder>();
                 await seeder.seed();
 
-                try
+                if (app.Environment.IsDevelopment())
                 {
-                    var qdrantInitializer = scope.ServiceProvider.GetRequiredService<QdrantInitializer>();
-                    await qdrantInitializer.InitializeAsync();
-                }
-                catch (Exception ex)
-                {
-                    app.Logger.LogError(ex, "Qdrant initialization failed. Semantic search will be unavailable until Qdrant is reachable.");
+                    try
+                    {
+                        var qdrantInitializer = scope.ServiceProvider.GetRequiredService<QdrantInitializer>();
+                        await qdrantInitializer.InitializeAsync();
+                    }
+                    catch (Exception ex)
+                    {
+                        app.Logger.LogError(ex, "Qdrant initialization failed. Semantic search will be unavailable until Qdrant is reachable.");
+                    }
                 }
             }
 

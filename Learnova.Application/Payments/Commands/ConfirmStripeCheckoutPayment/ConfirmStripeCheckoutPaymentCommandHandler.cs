@@ -4,7 +4,7 @@ using Learnova.Application.Exceptions;
 using Learnova.Application.Favorites.Specifications;
 using Learnova.Application.Orders.Specifications;
 using Learnova.Application.Payments.Specifications;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using MediatR;
@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Learnova.Application.Payments.Commands.ConfirmStripeCheckoutPayment
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class ConfirmStripeCheckoutPaymentCommandHandler(
         IUnitOfWork unitOfWork,

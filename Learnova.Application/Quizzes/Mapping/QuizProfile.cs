@@ -1,6 +1,6 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Learnova.Application.Quizzes.DTO;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

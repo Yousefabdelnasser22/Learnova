@@ -1,4 +1,4 @@
-﻿using AutoMapper;
+using AutoMapper;
 using Learnova.Application.Modules.Command.CreateModule;
 using Learnova.Application.Modules.DTO;
 using System;
@@ -13,8 +13,8 @@ namespace Learnova.Application.Modules.Mapping
     {
         public ModuleProfile()
         {
-            CreateMap<CreateModuleCommand, Learnova.Domain.Entites.Module>().ReverseMap();
-            CreateMap< Learnova.Domain.Entites.Module,ModuleDTO>().ForMember(x => x.CourseName, opt => opt.MapFrom(s => s.Course.Title))
+            CreateMap<CreateModuleCommand, Learnova.Domain.Entities.Module>().ReverseMap();
+            CreateMap< Learnova.Domain.Entities.Module,ModuleDTO>().ForMember(x => x.CourseName, opt => opt.MapFrom(s => s.Course.Title))
                 .ReverseMap();
         }
     }

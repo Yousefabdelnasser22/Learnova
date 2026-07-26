@@ -1,6 +1,6 @@
 using Learnova.Application.Carts.Specifications;
 using Learnova.Application.User;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using System;

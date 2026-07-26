@@ -1,5 +1,5 @@
 using Learnova.Application.Courses.Services;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Microsoft.Extensions.Logging;
 using Qdrant.Client;
 using Qdrant.Client.Grpc;

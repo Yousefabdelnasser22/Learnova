@@ -1,5 +1,5 @@
 using System.Text.Encodings.Web;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Infrastructure.Configuration;
 using MailKit.Net.Smtp;
 using MailKit.Security;

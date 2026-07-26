@@ -1,4 +1,4 @@
-﻿using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using Learnova.Domain.Specifications;
 using Learnova.Infrastructure.Data;

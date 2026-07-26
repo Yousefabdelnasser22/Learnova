@@ -1,20 +1,20 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learnova.Domain.Entites
+namespace Learnova.Domain.Entities
 {
-    public class LessonProgress : BaseEntity
+    public class ModuleProgress : BaseEntity
     {
         public string StudentId { get; set; } = default!;
-        public int LessonId { get; set; }
+        public int ModuleId { get; set; }
 
         public bool IsCompleted { get; set; } = false;
         public DateTime? CompletedAt { get; set; }
 
         public ApplicationUser Student { get; set; } = null!;
-        public Lesson Lesson { get; set; } = null!;
+        public Module Module { get; set; } = null!;
     }
 }

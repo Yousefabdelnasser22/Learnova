@@ -2,7 +2,7 @@ using Learnova.Domain.Specifications;
 
 namespace Learnova.Application.Quizzes.Specifications
 {
-    using QuizAttemptEntity = Learnova.Domain.Entites.QuizAttempt;
+    using QuizAttemptEntity = Learnova.Domain.Entities.QuizAttempt;
 
     public class QuizAttemptsByQuizSpecification : BaseSpecification<QuizAttemptEntity>
     {

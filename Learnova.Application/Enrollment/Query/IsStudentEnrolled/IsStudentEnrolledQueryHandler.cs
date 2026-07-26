@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Learnova.Application.Enrollment.Query.IsStudentEnrolled
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class IsStudentEnrolledQueryHandler(IUnitOfWork unitOfWork, ILogger<GetStudentEnrollmentsQueryHandler> logger, IUserContext userContext) : IRequestHandler<IsStudentEnrolledQuery, bool>
     {

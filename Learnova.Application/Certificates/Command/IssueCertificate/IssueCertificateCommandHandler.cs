@@ -3,14 +3,14 @@ using Learnova.Application.Enrollment.Specifications;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
 using Learnova.Domain.Common;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
 namespace Learnova.Application.Certificates.Command.IssueCertificate
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public class IssueCertificateCommandHandler(
         IUnitOfWork unitOfWork,

@@ -1,4 +1,4 @@
-﻿using Learnova.Domain.Enums;
+using Learnova.Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learnova.Domain.Entites
+namespace Learnova.Domain.Entities
 {
     public class Course:BaseEntity
     {

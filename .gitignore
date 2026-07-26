@@ -1,8 +1,72 @@
+# Build output
+[Bb]in/
+[Oo]bj/
+artifacts/
+publish/
+
+# Visual Studio
 .vs/
-
-**/bin/
-**/obj/
-
 *.user
 *.suo
+*.userosscache
+*.sln.docstates
+*.rsuser
 
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Visual Studio Code
+.vscode/
+
+# Local environment and configuration
+.env
+.env.*
+!.env.example
+
+appsettings.Local.json
+appsettings.*.Local.json
+
+*.secrets.json
+secrets.json
+
+# Logs
+logs/
+*.log
+
+# Testing and coverage
+TestResults/
+coverage/
+coverage.*
+*.coverage
+*.coveragexml
+*.trx
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Local databases
+*.mdf
+*.ldf
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+temp/
+tmp/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Certificates and private keys
+*.pfx
+*.p12
+*.pem
+*.key
+*.crt
+*.cer

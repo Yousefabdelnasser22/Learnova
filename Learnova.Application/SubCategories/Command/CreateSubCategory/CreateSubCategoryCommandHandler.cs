@@ -1,6 +1,6 @@
 using Learnova.Application.Caching;
 using Learnova.Application.Exceptions;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using MediatR;
 using Microsoft.Extensions.Logging;

@@ -1,4 +1,4 @@
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

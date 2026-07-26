@@ -1,4 +1,4 @@
-﻿using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Interfaces;
 using Learnova.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +14,7 @@ namespace Learnova.Infrastructure.Repositories
 
         public IGenericRepository<Course> course { get; }
 
-        public IGenericRepository<Learnova.Domain.Entites.Module> module { get; }
+        public IGenericRepository<Learnova.Domain.Entities.Module> module { get; }
 
         public IGenericRepository<Lesson> lesson { get; }
 
@@ -43,7 +43,7 @@ namespace Learnova.Infrastructure.Repositories
             Context = context;
 
             course = Repository<Course>();
-            module = Repository<Learnova.Domain.Entites.Module>();
+            module = Repository<Learnova.Domain.Entities.Module>();
             lesson = Repository<Lesson>();
             enrollment = new EnrollmentRepository(Context);
             lessonProgress = new LessonProgressRepository(Context);

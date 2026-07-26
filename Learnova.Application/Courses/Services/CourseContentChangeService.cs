@@ -1,12 +1,12 @@
 using Learnova.Application.Caching;
 using Learnova.Application.Exceptions;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 
 namespace Learnova.Application.Courses.Services
 {
-    using EnrollmentEntity = Learnova.Domain.Entites.Enrollment;
+    using EnrollmentEntity = Learnova.Domain.Entities.Enrollment;
 
     public sealed class CourseContentChangeService(
         ICourseSearchService courseSearchService,

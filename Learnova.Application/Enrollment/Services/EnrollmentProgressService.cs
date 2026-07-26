@@ -2,7 +2,7 @@ using Learnova.Application.Exceptions;
 using Learnova.Application.Lesson.Specifications;
 using Learnova.Application.Modules.Specifications;
 using Learnova.Application.Quizzes.Specifications;
-using Learnova.Domain.Entites;
+using Learnova.Domain.Entities;
 using Learnova.Domain.Enums;
 using Learnova.Domain.Interfaces;
 using Microsoft.Extensions.Logging;
@@ -21,7 +21,7 @@ namespace Learnova.Application.Enrollment.Services
             cancellationToken.ThrowIfCancellationRequested();
 
             var lessonsByModuleSpec = new LessonsByModuleSpecification(moduleId);
-            var totalLessons = await unitOfWork.Repository<Learnova.Domain.Entites.Lesson>()
+            var totalLessons = await unitOfWork.Repository<Learnova.Domain.Entities.Lesson>()
                 .CountWithSpecAsync(lessonsByModuleSpec);
 
             var completedLessonsSpec = new CompletedLessonProgressByModuleSpecification(

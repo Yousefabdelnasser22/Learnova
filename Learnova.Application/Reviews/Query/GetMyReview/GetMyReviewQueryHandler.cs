@@ -43,7 +43,7 @@ namespace Learnova.Application.Reviews.Query.GetMyReview
                 review.CourseId);
 
             var hasActiveEnrollment = await unitOfWork
-                .Repository<Learnova.Domain.Entites.Enrollment>()
+                .Repository<Learnova.Domain.Entities.Enrollment>()
                 .AnyWithSpecAsync(activeEnrollmentSpec);
 
             if (!hasActiveEnrollment)
