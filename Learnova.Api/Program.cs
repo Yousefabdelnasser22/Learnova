@@ -114,6 +114,7 @@ namespace Learnova.Api
                   .WriteTo.Console()
                   );
 
+            builder.Services.AddHealthChecks();
             var app = builder.Build();
 
 
@@ -176,6 +177,7 @@ namespace Learnova.Api
                 .RequireRateLimiting("auth-ip")
                 .MapIdentityApi<ApplicationUser>();
 
+            app.MapHealthChecks("/health");
             app.Run();
         }
     }
