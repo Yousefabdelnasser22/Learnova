@@ -173,7 +173,7 @@ namespace Learnova.Api
             app.MapControllers();
 
             app.MapGroup("/api/identity")
-                .WithTags("identity")
+                .WithTags("Identity")
                 .RequireRateLimiting("auth-ip")
                 .MapIdentityApi<ApplicationUser>();
 
