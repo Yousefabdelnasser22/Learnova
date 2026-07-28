@@ -66,8 +66,8 @@ namespace Learnova.Api.Controllers
 
         [HttpGet("search")]
         [SwaggerOperation(
-            Summary = "Search courses",
-            Description = "Returns a limited set of courses matching the supplied search term.")]
+            Summary = "Semantically search courses",
+            Description = "Uses Gemini embeddings and Qdrant vector search to return a limited set of courses that are semantically related to the supplied search term.")]
         public async Task<IActionResult> Search([FromQuery] string searchTerm, [FromQuery] int limit = 10)
         {
             var courses = await mediator.Send(new SearchCoursesQuery(searchTerm, limit));

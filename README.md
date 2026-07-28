@@ -5,6 +5,15 @@ course authoring and publishing, lessons and modules, quizzes, enrollments,
 progress tracking, certificates, reviews, favorites, carts, orders, and Stripe
 payments.
 
+## Live demo
+
+- [Swagger UI](https://learnova-api.runasp.net/swagger)
+- [Health check](https://learnova-api.runasp.net/health)
+
+The demo is deployed on the MonsterASP.NET free tier, so the first request can
+take a few seconds while the application wakes up. Stripe payments run in
+sandbox mode and don't process real money.
+
 The solution follows a layered architecture:
 
 ```text
