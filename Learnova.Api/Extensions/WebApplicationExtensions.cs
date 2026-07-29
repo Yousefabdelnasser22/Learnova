@@ -47,6 +47,7 @@ namespace Learnova.Api.Extensions
                 {
                     c.EnableAnnotations();
                     c.OperationFilter<TooManyRequestsResponseOperationFilter>();
+                    c.OperationFilter<IdentityRegistrationOperationFilter>();
 
                     c.AddSecurityDefinition("bearerAuth", new OpenApiSecurityScheme
                     {
