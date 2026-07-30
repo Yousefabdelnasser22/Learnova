@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learnova.Application.User.Command.AssignUserRole
+namespace Learnova.Application.User.Command.UnassignUserRole
 {
     public class UnassignUserRoleCommand : IRequest
     {

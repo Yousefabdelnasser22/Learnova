@@ -1,4 +1,3 @@
-using Learnova.Application.User.Command.AssignUserRole;
 using Learnova.Application.Exceptions;
 using Learnova.Application.User;
 using Learnova.Domain.Constant;
@@ -11,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Learnova.Application.User.Command.UnAssignUserRole
+namespace Learnova.Application.User.Command.UnassignUserRole
 {
     public class UnassignUserRoleCommandHandler(
         UserManager<ApplicationUser> userManager,

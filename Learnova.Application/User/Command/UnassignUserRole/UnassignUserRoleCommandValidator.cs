@@ -1,7 +1,7 @@
 using FluentValidation;
 using Learnova.Domain.Constant;
 
-namespace Learnova.Application.User.Command.AssignUserRole
+namespace Learnova.Application.User.Command.UnassignUserRole
 {
     public class UnassignUserRoleCommandValidator : AbstractValidator<UnassignUserRoleCommand>
     {
